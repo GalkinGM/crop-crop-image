@@ -1,4 +1,4 @@
-package mts.teta.resizer;
+package image.resizer;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -10,6 +10,8 @@ import marvinplugins.MarvinPluginCollection;
 import net.coobird.thumbnailator.Thumbnails;
 import org.marvinproject.image.blur.gaussianBlur.GaussianBlur;
 import marvin.image.MarvinImage;
+
+//TODO Данный класс повторяет все то что есть в папке Commands, по сути можно и не использовать этот класс
 
 public class ImageProcessor {
 
@@ -28,7 +30,7 @@ public class ImageProcessor {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(data);
         BufferedImage outputImages = ImageIO.read(inputStream);
         if (blurring > 0){
-             outputImages = PortionBlurImage(outputImages, 0, 0, targetWidth, targetHeight, blurring);
+             outputImages = portionBlurImage(outputImages, 0, 0, targetWidth, targetHeight, blurring);
         }
 
         if (commandCrop.equals("crop")){
@@ -56,7 +58,7 @@ public class ImageProcessor {
     }
 
     //TODO Размываем изображения (blur radius)
-    static BufferedImage PortionBlurImage (BufferedImage originalImage, int x, int y, int targetWidth, int targetHeight, int blurring){
+    static BufferedImage portionBlurImage (BufferedImage originalImage, int x, int y, int targetWidth, int targetHeight, int blurring){
         // 1. Добавляем изображение
         MarvinImage image = new MarvinImage(originalImage);
 

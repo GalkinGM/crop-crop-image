@@ -1,4 +1,4 @@
-package mts.teta.resizer.utils;
+package image.resizer.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
